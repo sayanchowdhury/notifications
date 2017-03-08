@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block extratitle %} Login {% endblock %}
+
+{% block includestylesheets %}
+  <link rel="stylesheet" href={% static "css/app/style.css" %}>
+{% endblock %}
+
+{% block body %}
+<div class="login-container">
+  <div id="particles-js"></div>
+</div>
+{% endblock %}
+
+{% block includejs %}
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+{% endblock %}
+{% block js %}
+$(document).ready(function() {
+  particlesJS.load('particles-js', '{% static "js/particles.json" %}', function() {
+    console.log('callback - particles.js config loaded');
+  });
+});
+{% endblock %}

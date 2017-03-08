@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Notifications | {% block extratitle %} {% endblock %}</title>
+    <meta name="description" content="Gotcha catch 'em all'">
+
+    {% block stylesheet %}{% endblock %}
+
+    <link rel="shortcut icon" href={% static "favicon.ico" %}>
+    <link rel="stylesheet" href={% static "css/main.css" %}>
+
+    {% block includestylesheets %}{% endblock %}
+
+  </head>
+
+  <body>
+    {% block body %} {% endblock %}
+    <!-- Javascript -->
+  	<script src={% static "js/jquery/jquery-2.1.0.min.js" %}></script>
+  	<script src={% static "js/bootstrap/bootstrap.min.js" %}></script>
+  	<script src={% static "js/plugins/jquery-slimscroll/jquery.slimscroll.min.js" %}></script>
+  	<script src={% static "js/klorofil.min.js" %}></script>
+    {% block includejs %}{% endblock %}
+    <script type="text/javascript">{% block js %}{% endblock %}</script>
+  </body>
+</html>
