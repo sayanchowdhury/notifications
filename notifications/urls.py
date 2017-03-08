@@ -24,6 +24,7 @@ import app.views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^@(?P<username>[-\w\.]+)/', include('profiles.urls')),
     url(r'^$',
         app.views.index,
         name='app_index')

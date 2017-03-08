@@ -1,13 +1,14 @@
-from django.shortcuts import render_to_response
 
-# Create your views here.
+from django.shortcuts import render
+from django.template import RequestContext
 
 
 def index(request):
     """
     This is the home of Notifications.
     """
-    ctx = {
+    template = 'app/index.html'
+
+    return render(request, template, {
         'message': 'Hello World'
-    }
-    return render_to_response('app/index.html', ctx)
+    })

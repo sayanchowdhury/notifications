@@ -2,3 +2,5 @@ db.sqlite3
 staticfiles/
 node_modules/
 .modified
+*pyc
+*swp

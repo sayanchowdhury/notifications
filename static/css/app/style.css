@@ -1,6 +1,55 @@
 body {
-  margin: 1px;
+  margin: 0;
+}
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+}
+.icon-github {
+  background-image: url("../../img/github/github-mark-120px-plus.png");
+  height: 120px;
+  width: 120px;
 }
 .login-container {
+  position: relative;
   background-color: #232741;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.login-container .login-btn {
+  font-size: 1.1em;
+  font-weight: 400;
+  text-align: center;
+  height: 34px;
+  line-height: 34px;
+  background: #fff;
+  margin-top: 25px;
+  color: #222;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.login-container .login-btn:hover {
+  background: #222;
+  color: #fff;
+}
+.login-container .icon-github {
+  margin: 0 auto;
+}
+.panel {
+  font-size: 1.3em;
+  position: absolute;
+  z-index: 10;
+  width: 200px;
+  height: 220px;
+  background: #eee;
+  top: 50%;
+  left: 50%;
+  margin: -110px 0 0 -100px;
+  padding: 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  z-index: 100;
 }

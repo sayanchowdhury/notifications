@@ -2,4 +2,40 @@
 @import "../base/base"
 
 .login-container
+  position: relative
   background-color: dark-blue
+  font-family: "Source Sans Pro",sans-serif
+
+  .login-btn
+    font-size: 1.1em
+    font-weight: 400
+    text-align: center
+    height: 34px
+    line-height: 34px
+    background: #fff
+    margin-top: 25px
+    color: #222
+    border-radius: 4px
+    transition: background 0.2s ease,color 0.2s ease;
+    &:hover
+      background: #222
+      color: #fff
+
+
+  .icon-github
+    margin: 0 auto
+
+.panel
+  font-size: 1.3em
+  position: absolute
+  z-index: 10
+  width: 200px
+  height: 220px
+  background: light-gray
+  top: 50%
+  left: 50%
+  margin: -110px 0 0 -100px
+  padding: 20px
+  border-radius: 4px
+  box-sizing: border-box
+  z-index: 100
