@@ -5,3 +5,4 @@ node_modules/
 *pyc
 *swp
 settings.py
+.idea/
