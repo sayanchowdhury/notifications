@@ -167,3 +167,6 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
