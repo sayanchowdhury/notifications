@@ -12,6 +12,7 @@ $ git clone git@github.com:sayanchowdhury/notifications.git
 $ cd notifications
 $ mkvirtualenv notifications
 $ pip install -r requirements.txt
+$ sudo npm install stylus -g
 $ cp notifications/settings.py.sample notifications/settings.py
 $ ./manage.py migrate
 $ ./manage.py compilestylus
