@@ -1,7 +1,7 @@
 import os
-import stat
 import subprocess
-import time
+
+from os.path import getmtime
 
 from django.contrib.staticfiles.management.commands.collectstatic import (
         Command as CollectstaticCommand)
@@ -14,29 +14,25 @@ class Command(CollectstaticCommand):
         BASE_DIR = settings.BASE_DIR
         STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
-        self.status_filename = os.path.join(BASE_DIR, '.modified')
+        all_stylus_files = []
 
-        first_run = False
-
-        if os.path.isfile(self.status_filename):
-            with open(self.status_filename, 'r') as f:
-                etime = int(f.read())
-        else:
-            first_run = True
-
-        for root, dirs, files in os.walk(STATIC_DIR):
+        for cur, _dir, files in os.walk(STATIC_DIR):
             for _file in files:
-                if _file.endswith('styl'):
-                    current_file = os.path.join(root, _file)
-                    last_modified = os.stat(current_file)[stat.ST_MTIME]
-                    if first_run or last_modified >= etime:
-                        subprocess.run([
-                            'stylus', current_file, '--out', root])
+                if _file.endswith('.styl'):
+                    filename = '/'.join([cur, _file])
+                    all_stylus_files.append(filename)
+
+        for stylus_filename in all_stylus_files:
+            css_filename = stylus_filename.replace('.styl', '.css')
+
+            if not os.path.isfile(css_filename):
+                print('Processing ', stylus_filename)
+                subprocess.run([
+                    'stylus', stylus_filename, '--out', css_filename])
+
+            if getmtime(stylus_filename) > getmtime(css_filename):
+                print('Processing ', stylus_filename)
+                subprocess.run([
+                    'stylus', stylus_filename, '--out', css_filename])
 
         super(Command, self).handle(**options)
-
-        self.save_status()
-
-    def save_status(self):
-        with open(self.status_filename, 'w') as f:
-            f.write(str(int(time.time())))
