@@ -1,5 +1,6 @@
+from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, reverse
-from django.template import RequestContext
 
 
 def index(request):
@@ -15,3 +16,13 @@ def index(request):
     return render(request, template, {
         'message': 'Hello World'
     })
+
+
+@login_required
+def logout_view(request):
+    """
+    This view logs the user out of the current session.
+    """
+    if request.user.is_authenticated():
+        logout(request)
+        return redirect(reverse('app_index'))

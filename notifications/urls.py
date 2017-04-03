@@ -27,7 +27,11 @@ urlpatterns = [
     url(r'^@(?P<username>[-\w\.]+)/', include('profiles.urls')),
     url(r'^$',
         app.views.index,
-        name='app_index')
+        name='app_index'),
+
+    url(r'^logout/$',
+        app.views.logout_view,
+        name='app_logout')
 ]
 
 if settings.LOCAL:
