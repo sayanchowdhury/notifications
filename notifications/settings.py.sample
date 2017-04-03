@@ -155,6 +155,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # django-allauth specific settings
+LOGIN_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_CONFIRMATION_HMAC = False if DEBUG else True
 SOCIALACCOUNT_ADAPTER = 'profiles.adapters.NotificationsSocialAccountAdapter'
 SOCIALACCOUNT_PROVIDERS = {
