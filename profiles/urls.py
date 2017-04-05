@@ -5,8 +5,13 @@ from django.conf import settings
 
 import profiles.views
 
+
 urlpatterns = [
     url(r'^$',
+        profiles.views.dashboard,
+        name='profiles_dashboard'),
+
+    url(r'^(?P<param1>[-\w\.]+)/$',
         profiles.views.dashboard,
         name='profiles_dashboard')
 ]
