@@ -25,7 +25,9 @@
     {% block body %} {% endblock %}
     <!-- Javascript -->
     <script type="text/javascript">
+      {% if history %}
       var HISTORY = {{ history|safe }};
+      {% endif %}
       var BASE_URL = '{{ base_url }}';
     </script>
   	<script src={% static "js/jquery/jquery-2.1.0.min.js" %}></script>
