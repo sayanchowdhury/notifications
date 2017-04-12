@@ -4,4 +4,5 @@ node_modules/
 .modified
 *pyc
 *swp
-settings.py
+local_settings.py
+config/
