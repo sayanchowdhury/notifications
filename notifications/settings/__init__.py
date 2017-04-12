@@ -173,6 +173,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Settings to override settings in your local system
 try:
-    from local_settings import *
+    from .local_settings import *
 except:
     pass
